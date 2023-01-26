@@ -1,23 +1,15 @@
-#the mod name as displayed in-game
-displayName: "Java Mod Template"
+displayName: "Serpulo Scaled"
 
-#the internal name of your mod
-name: "example-java-mod"
+name: "serpulo-scaled"
 
-#your name
-author: "You"
+author: "Thomas's Things"
 
-#the fully qualified main class of the mod
-main: "example.ExampleJavaMod"
+main: "seroulo-scaled.SerpuloScaledMod"
 
-#the mod description as seen in the mod dialog
-description: "A Mindustry Java mod template."
+description: "A Mindustry mod for adding both larger and smaller content to Serpulo."
 
-#the mod version
-version: 1.0
+version: 0.0
 
-#the minimum game build required to run this mod
-minGameVersion: 140
+minGameVersion: 140.3
 
-#this is a java mod
 java: true
