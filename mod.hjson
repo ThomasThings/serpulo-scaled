@@ -1,10 +1,10 @@
 displayName: "Serpulo Scaled"
 
-name: "serpulo-scaled"
+name: "ss"
 
 author: "Thomas's Things"
 
-main: "seroulo-scaled.SerpuloScaledMod"
+main: "ss.SSMod"
 
 description: "A Mindustry mod for adding both larger and smaller content to Serpulo."
 
