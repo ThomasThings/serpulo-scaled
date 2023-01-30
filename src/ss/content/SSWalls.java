@@ -198,7 +198,7 @@ public class SSWalls{
             size = 3;
             envDisabled |= Env.scorching;
         }};
-        doorHuge = new Door("door-huge"){{
+        doorGigantic = new Door("door-gigantic"){{
             requirements(Category.defense, ItemStack.with(Items.titanium, 96, Items.silicon, 64));
             openfx = Fx.dooropenlarge;
             closefx = Fx.doorcloselarge;
