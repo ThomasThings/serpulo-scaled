@@ -1,5 +1,6 @@
 package ss.content;
 
+import arc.graphics.Color;
 import mindustry.content.Fx;
 import mindustry.type.*;
 import mindustry.world.*;
@@ -16,6 +17,7 @@ public class SSWalls{
             metaglassWall, metaglassWallLarge, metaglassWallHuge, metaglassWallGigantic,
             graphiteWall, graphiteWallLarge, graphiteWallHuge, graphiteWallGigantic,
             titaniumWallHuge, titaniumWallGigantic,
+            siliconWall, siliconWallLarge, siliconWallHuge, siliconWallGigantic,
             plastaniumWallHuge, plastaniumWallGigantic,
             thoriumWallHuge, thoriumWallGigantic,
             phaseWallHuge, phaseWallGigantic,
@@ -51,13 +53,13 @@ public class SSWalls{
         leadWallHuge = new Wall("lead-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.lead, 45));
             health = 60 * wallHealthMultiplier * 9;
-            size = 2;
+            size = 3;
             envDisabled |= Env.scorching;
         }};
         leadWallGigantic = new Wall("lead-wall-gigantic"){{
             requirements(Category.defense, ItemStack.with(Items.lead, 80));
             health = 60 * wallHealthMultiplier * 16;
-            size = 2;
+            size = 4;
             envDisabled |= Env.scorching;
         }};
         metaglassWall = new Wall("metaglass-wall"){{
@@ -96,7 +98,7 @@ public class SSWalls{
         }};
         graphiteWallLarge = new Wall("graphite-wall-large"){{
             requirements(Category.defense, with(Items.graphite, 24));
-            health = 95 * wallHealthMultiplier * 95;
+            health = 95 * wallHealthMultiplier * 9;
             size = 2;
             insulated = true;
             schematicPriority = 10;
@@ -128,6 +130,49 @@ public class SSWalls{
             requirements(Category.defense, ItemStack.with(Items.titanium, 96));
             health = 110 * wallHealthMultiplier * 16;
             size = 4;
+            envDisabled |= Env.scorching;
+        }};
+        siliconWall = new Wall("silicon-wall"){{
+            requirements(Category.defense, with(Items.silicon, 6));
+            health = 90 * wallHealthMultiplier;
+            insulated = true;
+            schematicPriority = 10;
+            lightningChance = 0.05f;
+            lightningDamage = 5f;
+            lightningColor = Color.valueOf("d6edff");
+            envDisabled |= Env.scorching;
+        }};
+        siliconWallLarge = new Wall("silicon-wall-large"){{
+            requirements(Category.defense, with(Items.silicon, 24));
+            health = 90 * wallHealthMultiplier * 4;
+            size = 2;
+            insulated = true;
+            schematicPriority = 10;
+            lightningChance = 0.05f;
+            lightningDamage = 5f;
+            lightningColor = Color.valueOf("d6edff");
+            envDisabled |= Env.scorching;
+        }};
+        siliconWallHuge = new Wall("silicon-wall-huge"){{
+            requirements(Category.defense, with(Items.silicon, 54));
+            health = 90 * wallHealthMultiplier * 9;
+            size = 3;
+            insulated = true;
+            schematicPriority = 10;
+            lightningChance = 0.05f;
+            lightningDamage = 5f;
+            lightningColor = Color.valueOf("d6edff");
+            envDisabled |= Env.scorching;
+        }};
+        siliconWallGigantic = new Wall("silicon-wall-gigantic"){{
+            requirements(Category.defense, with(Items.silicon, 96));
+            health = 90 * wallHealthMultiplier * 16;
+            size = 4;
+            insulated = true;
+            schematicPriority = 10;
+            lightningChance = 0.05f;
+            lightningDamage = 5f;
+            lightningColor = Color.valueOf("d6edff");
             envDisabled |= Env.scorching;
         }};
         plastaniumWallHuge = new Wall("plastanium-wall-huge"){{
