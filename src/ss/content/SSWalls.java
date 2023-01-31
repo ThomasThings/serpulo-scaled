@@ -1,7 +1,6 @@
 package ss.content;
 
 import arc.graphics.Color;
-import mindustry.content.Fx;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
@@ -237,16 +236,16 @@ public class SSWalls{
         }};
         doorHuge = new Door("door-huge"){{
             requirements(Category.defense, ItemStack.with(Items.titanium, 54, Items.silicon, 36));
-            openfx = Fx.dooropenlarge;
-            closefx = Fx.doorcloselarge;
+            openfx = SSFx.doorOpenHuge;
+            closefx = SSFx.doorCloseHuge;
             health = 100 * wallHealthMultiplier * 9;
             size = 3;
             envDisabled |= Env.scorching;
         }};
         doorGigantic = new Door("door-gigantic"){{
             requirements(Category.defense, ItemStack.with(Items.titanium, 96, Items.silicon, 64));
-            openfx = Fx.dooropenlarge;
-            closefx = Fx.doorcloselarge;
+            openfx = SSFx.doorOpenGigantic;
+            closefx = SSFx.doorCloseGigantic;
             health = 100 * wallHealthMultiplier * 16;
             size = 4;
             envDisabled |= Env.scorching;
