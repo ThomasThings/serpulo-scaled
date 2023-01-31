@@ -16,21 +16,21 @@ public class SSFx{
 
     doorOpenHuge = new Effect(10, e -> {
         stroke(e.fout() * 1.6f);
-        Lines.square(e.x, e.y, tilesize + e.fin() * 2f * 1.5f);
+        Lines.square(e.x, e.y, e.rotation * tilesize / 2f + e.fin() * 2f);
     }),
 
     doorCloseHuge = new Effect(10, e -> {
         stroke(e.fout() * 1.6f);
-        Lines.square(e.x, e.y, tilesize + e.fout() * 2f * 1.5f);
+        Lines.square(e.x, e.y, e.rotation * tilesize / 2f + e.fin() * 2f);
     }),
 
     doorOpenGigantic = new Effect(10, e -> {
         stroke(e.fout() * 1.6f);
-        Lines.square(e.x, e.y, tilesize + e.fin() * 2f * 2);
+        Lines.square(e.x, e.y, e.rotation * tilesize / 2f + e.fin() * 2f);
     }),
 
     doorCloseGigantic = new Effect(10, e -> {
         stroke(e.fout() * 1.6f);
-        Lines.square(e.x, e.y, tilesize + e.fout() * 2f * 2);
+        Lines.square(e.x, e.y, e.rotation * tilesize / 2f + e.fin() * 2f);
     });
 }
