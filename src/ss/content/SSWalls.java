@@ -137,7 +137,7 @@ public class SSWalls{
             health = 90 * wallHealthMultiplier;
             insulated = true;
             schematicPriority = 10;
-            lightningChance = 0.05f;
+            lightningChance = 0.025f;
             lightningDamage = 5f;
             lightningColor = Color.valueOf("d6edff");
             envDisabled |= Env.scorching;
@@ -148,7 +148,7 @@ public class SSWalls{
             size = 2;
             insulated = true;
             schematicPriority = 10;
-            lightningChance = 0.05f;
+            lightningChance = 0.025f;
             lightningDamage = 5f;
             lightningColor = Color.valueOf("d6edff");
             envDisabled |= Env.scorching;
@@ -159,7 +159,7 @@ public class SSWalls{
             size = 3;
             insulated = true;
             schematicPriority = 10;
-            lightningChance = 0.05f;
+            lightningChance = 0.025f;
             lightningDamage = 5f;
             lightningColor = Color.valueOf("d6edff");
             envDisabled |= Env.scorching;
@@ -170,7 +170,7 @@ public class SSWalls{
             size = 4;
             insulated = true;
             schematicPriority = 10;
-            lightningChance = 0.05f;
+            lightningChance = 0.025f;
             lightningDamage = 5f;
             lightningColor = Color.valueOf("d6edff");
             envDisabled |= Env.scorching;
