@@ -34,7 +34,7 @@ public class SSEffect{
             consumePower(7f);
             size = 4;
             reload = 300f;
-            range = 85f;
+            range = 240f;
             healPercent = 20f;
             phaseBoost = 20f;
             scaledHealth = 80;
@@ -45,7 +45,7 @@ public class SSEffect{
             consumePower(12f);
             size = 5;
             reload = 330f;
-            range = 240f;
+            range = 460f;
             healPercent = 30f;
             phaseBoost = 35f;
             scaledHealth = 80;
@@ -54,7 +54,7 @@ public class SSEffect{
         overdriver = new OverdriveProjector("overdriver"){{
             requirements(Category.effect, with(Items.lead, 20, Items.titanium, 25, Items.silicon, 15));
             consumePower(1.2f);
-            range = 200f;
+            range = 40f;
             speedBoost = 1.1f;
             useTime = 300f;
             hasBoost = false;
@@ -64,7 +64,7 @@ public class SSEffect{
             requirements(Category.effect, with(Items.lead, 250, Items.titanium, 350, Items.silicon, 275, Items.plastanium, 170, Items.surgeAlloy, 250));
             consumePower(15f);
             size = 4;
-            range = 350f;
+            range = 240f;
             speedBoost = 2.5f;
             useTime = 600f;
             hasBoost = false;
@@ -74,7 +74,7 @@ public class SSEffect{
             requirements(Category.effect, with(Items.titanium, 400, Items.phaseFabric, 150, Items.silicon, 275, Items.plastanium, 2200, Items.surgeAlloy, 300));
             consumePower(22f);
             size = 5;
-            range = 450f;
+            range = 360f;
             speedBoost = 3.5f;
             useTime = 600f;
             hasBoost = false;
