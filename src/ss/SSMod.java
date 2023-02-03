@@ -9,6 +9,7 @@ public class SSMod extends Mod{
 
     public void loadContent(){
         SSWalls.load();
+        SSEffect.load();
     }
 
 }
