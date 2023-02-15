@@ -6,6 +6,7 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.content.Items;
+import mindustry.world.meta.BuildVisibility;
 import mindustry.world.meta.Env;
 
 import static mindustry.type.ItemStack.*;

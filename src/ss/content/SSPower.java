@@ -28,7 +28,7 @@ public class SSPower{
         golliathNode = new PowerNode("golliath-node"){{
             requirements(Category.power, with(Items.plastanium, 35, Items.silicon, 80, Items.surgeAlloy, 30));
             size = 4;
-            maxNodes = 25;
+            maxNodes = 40;
             laserRange = 40f;
         }};
 
