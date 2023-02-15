@@ -29,7 +29,7 @@ public class SSPower{
             requirements(Category.power, with(Items.plastanium, 35, Items.silicon, 80, Items.surgeAlloy, 30));
             size = 4;
             maxNodes = 25;
-            laserRange = 28f;
+            laserRange = 40f;
         }};
 
         //batteries
