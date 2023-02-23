@@ -11,6 +11,7 @@ public class SSMod extends Mod{
         SSWalls.load();
         SSEffect.load();
         SSPower.load();
+        SSTurrets.load();
     }
 
 }
