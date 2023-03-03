@@ -5,6 +5,8 @@ import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.ArtilleryBulletType;
 import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.bullet.BulletType;
+import mindustry.entities.bullet.LightningBulletType;
 import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootBarrel;
 import mindustry.gen.Sounds;
@@ -14,6 +16,7 @@ import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.content.Items;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
+import mindustry.world.blocks.defense.turrets.PowerTurret;
 import mindustry.world.meta.Env;
 
 import static mindustry.type.ItemStack.*;
@@ -21,7 +24,9 @@ import static mindustry.type.ItemStack.*;
 public class SSTurrets{
     public static Block
             dyad, trifecta,
-            sleet, meteor;
+            inferno, hellfire,
+            sleet, meteor,
+            discharge, cumulos;
 
     public static void load(){
 
@@ -37,7 +42,7 @@ public class SSTurrets{
                     Items.graphite, new BasicBulletType(3.7f, 25){{
                         width = 9f;
                         height = 12f;
-                        reloadMultiplier = 0.6f;
+                        reloadMultiplier = 0.8f;
                         ammoMultiplier = 4;
                         lifetime = 60f;
                     }},
@@ -51,7 +56,7 @@ public class SSTurrets{
                     }}
             );
 
-            shoot = new ShootAlternate(11.5f);
+            shoot = new ShootAlternate(6.5f);
 
             shootY = 7f;
             reload = 20f;
@@ -60,7 +65,7 @@ public class SSTurrets{
             shootCone = 12f;
             ammoUseEffect = Fx.casing2;
             inaccuracy = 2f;
-            rotateSpeed = 9f;
+            rotateSpeed = 8f;
             coolant = consumeCoolant(0.15f);
             researchCostMultiplier = 0.5f;
 
@@ -70,30 +75,30 @@ public class SSTurrets{
             requirements(Category.turret, with(Items.copper, 200, Items.graphite, 150, Items.titanium, 120));
             ammo(
                     Items.copper,  new BasicBulletType(2.7f, 25){{
-                        width = 7f;
-                        height = 9f;
+                        width = 12f;
+                        height = 16f;
                         lifetime = 80f;
                         ammoMultiplier = 2;
                     }},
                     Items.graphite, new BasicBulletType(3.7f, 35){{
-                        width = 9f;
-                        height = 12f;
-                        reloadMultiplier = 0.6f;
+                        width = 14f;
+                        height = 20f;
+                        reloadMultiplier = 0.9f;
                         ammoMultiplier = 4;
                         lifetime = 80f;
                     }},
                     Items.silicon, new BasicBulletType(3.2f, 25){{
-                        width = 7f;
-                        height = 9f;
+                        width = 12f;
+                        height = 16f;
                         homingPower = 0.1f;
                         reloadMultiplier = 1.5f;
                         ammoMultiplier = 5;
                         lifetime = 90f;
                     }},
                     Items.titanium, new BasicBulletType(3.5f, 40){{
-                        width = 9f;
-                        height = 12f;
-                        reloadMultiplier = 0.6f;
+                        width = 14f;
+                        height = 20f;
+                        reloadMultiplier = 0.9f;
                         ammoMultiplier = 4;
                         lifetime = 80f;
                     }}
@@ -114,10 +119,53 @@ public class SSTurrets{
             shootCone = 12f;
             ammoUseEffect = Fx.casing2;
             inaccuracy = 2f;
-            rotateSpeed = 9f;
+            rotateSpeed = 6f;
             coolant = consumeCoolant(0.25f);
 
             limitRange();
+        }};
+
+        inferno = new ItemTurret("inferno"){{
+            requirements(Category.turret, with(Items.copper, 25, Items.graphite, 22));
+            ammo(
+                    Items.coal, new BulletType(3.35f, 17f){{
+                        ammoMultiplier = 3f;
+                        hitSize = 12f;
+                        lifetime = 27f;
+                        pierce = true;
+                        collidesAir = false;
+                        statusDuration = 60f * 5;
+                        shootEffect = Fx.shootSmallFlame;
+                        hitEffect = Fx.hitFlameSmall;
+                        despawnEffect = Fx.none;
+                        status = StatusEffects.burning;
+                        keepVelocity = false;
+                        hittable = false;
+                    }},
+                    Items.pyratite, new BulletType(4f, 60f){{
+                        ammoMultiplier = 6f;
+                        hitSize = 7f;
+                        lifetime = 18f;
+                        pierce = true;
+                        collidesAir = false;
+                        statusDuration = 60f * 10;
+                        shootEffect = Fx.shootPyraFlame;
+                        hitEffect = Fx.hitFlameSmall;
+                        despawnEffect = Fx.none;
+                        status = StatusEffects.burning;
+                        hittable = false;
+                    }}
+            );
+            recoil = 0f;
+            reload = 6f;
+            coolantMultiplier = 1.5f;
+            range = 60f;
+            shootCone = 50f;
+            targetAir = false;
+            ammoUseEffect = Fx.none;
+            health = 400;
+            shootSound = Sounds.flame;
+            coolant = consumeCoolant(0.1f);
         }};
 
         sleet = new ItemTurret("sleet"){{
@@ -169,8 +217,8 @@ public class SSTurrets{
                         splashDamage = 65f;
                         status = StatusEffects.blasted;
                         statusDuration = 60f * 12f;
-                        frontColor = Color.valueOf("e58956");
-                        backColor = Color.valueOf("ffd2ae");
+                        frontColor = Color.valueOf("ffd2ae");
+                        backColor = Color.valueOf("e58956");
                         makeFire = true;
                         trailEffect = Fx.incendTrail;
                         ammoMultiplier = 4f;
@@ -198,7 +246,7 @@ public class SSTurrets{
                         width = height = 18f;
                         collidesTiles = false;
                         splashDamageRadius = 25f * 0.75f;
-                        splashDamage = 80f;
+                        splashDamage = 100f;
                     }},
                     Items.silicon, new ArtilleryBulletType(5f, 25){{
                         knockback = 0.8f;
@@ -210,7 +258,7 @@ public class SSTurrets{
                         reloadMultiplier = 1.2f;
                         ammoMultiplier = 3f;
                         homingPower = 0.08f;
-                        homingRange = 50f;
+                        homingRange = 90f;
                     }},
                     Items.pyratite, new ArtilleryBulletType(3f, 35){{
                         hitEffect = Fx.blastExplosion;
@@ -219,7 +267,7 @@ public class SSTurrets{
                         width = height = 20f;
                         collidesTiles = false;
                         splashDamageRadius = 25f * 0.75f;
-                        splashDamage = 80f;
+                        splashDamage = 90f;
                         status = StatusEffects.burning;
                         statusDuration = 60f * 12f;
                         frontColor = Pal.lightishOrange;
@@ -235,11 +283,11 @@ public class SSTurrets{
                         width = height = 20f;
                         collidesTiles = false;
                         splashDamageRadius = 25f * 0.75f;
-                        splashDamage = 110f;
+                        splashDamage = 140f;
                         status = StatusEffects.blasted;
                         statusDuration = 60f * 12f;
-                        frontColor = Color.valueOf("e58956");
-                        backColor = Color.valueOf("ffd2ae");
+                        frontColor = Color.valueOf("ffd2ae");
+                        backColor = Color.valueOf("e58956");
                         makeFire = true;
                         trailEffect = Fx.incendTrail;
                         ammoMultiplier = 2f;
@@ -257,6 +305,79 @@ public class SSTurrets{
             shootSound = Sounds.bang;
             coolant = consumeCoolant(0.25f);
             limitRange(0f);
+        }};
+
+        discharge = new PowerTurret("discharge"){{
+            requirements(Category.turret, with(Items.copper, 100, Items.lead, 120, Items.silicon, 50));
+            shootType = new LightningBulletType(){{
+                damage = 30;
+                lightningLength = 45;
+                lightning = 4;
+                collidesAir = false;
+                ammoMultiplier = 1f;
+
+                buildingDamageMultiplier = 0.35f;
+
+                lightningType = new BulletType(0.0001f, 0f){{
+                    lifetime = Fx.lightning.lifetime;
+                    hitEffect = Fx.hitLancer;
+                    despawnEffect = Fx.none;
+                    status = StatusEffects.shocked;
+                    statusDuration = 10f;
+                    hittable = false;
+                    lightColor = Color.white;
+                    collidesAir = false;
+                    buildingDamageMultiplier = 0.25f;
+                }};
+            }};
+            reload = 25f;
+            shootCone = 40f;
+            rotateSpeed = 6.5f;
+            targetAir = false;
+            range = 150f;
+            shootEffect = Fx.lightningShoot;
+            heatColor = Color.red;
+            recoil = 1f;
+            size = 2;
+            shootSound = Sounds.spark;
+            consumePower(5.3f);
+            coolant = consumeCoolant(0.2f);
+        }};
+        cumulos = new PowerTurret("cumulos"){{
+            requirements(Category.turret, with(Items.titanium, 140, Items.lead, 220, Items.silicon, 180, Items.plastanium, 80));
+            shootType = new LightningBulletType(){{
+                damage = 100;
+                lightningLength = 70;
+                lightning = 10;
+                collidesAir = false;
+                ammoMultiplier = 1f;
+
+                buildingDamageMultiplier = 0.75f;
+
+                lightningType = new BulletType(0.0001f, 0f){{
+                    lifetime = Fx.lightning.lifetime;
+                    hitEffect = Fx.hitLancer;
+                    despawnEffect = Fx.none;
+                    status = StatusEffects.shocked;
+                    statusDuration = 10f;
+                    hittable = false;
+                    lightColor = Color.white;
+                    collidesAir = false;
+                    buildingDamageMultiplier = 0.25f;
+                }};
+            }};
+            reload = 75f;
+            shootCone = 40f;
+            rotateSpeed = 5f;
+            targetAir = false;
+            range = 180f;
+            shootEffect = Fx.lightningShoot;
+            heatColor = Color.red;
+            recoil = 4f;
+            size = 3;
+            shootSound = Sounds.spark;
+            consumePower(9f);
+            coolant = consumeCoolant(0.4f);
         }};
     }
 }
