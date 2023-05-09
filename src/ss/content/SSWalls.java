@@ -1,17 +1,30 @@
 package ss.content;
 
 import arc.graphics.Color;
+import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.Fill;
+import arc.math.Mathf;
+import arc.util.Time;
 import mindustry.content.Fx;
+import mindustry.entities.Fires;
+import mindustry.entities.bullet.ArtilleryBulletType;
+import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.bullet.BulletType;
+import mindustry.gen.Bullet;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.content.Items;
 import mindustry.world.meta.Env;
+import ss.world.blocks.defense.BulletWall;
 
+import static mindustry.Vars.world;
 import static mindustry.type.ItemStack.*;
 
 public class SSWalls{
     public static Block
+
+            refurbishedScrapWall, refurbishedScrapWallLarge, refurbishedScrapWallHuge, refurbishedScrapWallGigantic,
             copperWallHuge, copperWallGigantic,
             leadWall, leadWallLarge, leadWallHuge, leadWallGigantic,
             metaglassWall, metaglassWallLarge, metaglassWallHuge, metaglassWallGigantic,
@@ -20,6 +33,9 @@ public class SSWalls{
             siliconWall, siliconWallLarge, siliconWallHuge, siliconWallGigantic,
             plastaniumWallHuge, plastaniumWallGigantic,
             thoriumWallHuge, thoriumWallGigantic,
+            pyratiteWall, pyratiteWallLarge, pyratiteWallHuge, pyratiteWallGigantic,
+            sporePodWall, sporePodWallLarge, sporePodWallHuge, sporePodWallGigantic,
+            blastCompoundWall, blastCompoundWallLarge, blastCompoundWallHuge, blastCompoundWallGigantic,
             phaseWallHuge, phaseWallGigantic,
             surgeWallHuge, surgeWallGigantic,
             doorHuge, doorGigantic;
@@ -27,6 +43,29 @@ public class SSWalls{
     public static void load(){
 
         int wallHealthMultiplier = 4;
+        refurbishedScrapWall = new Wall("refubished-scrap-wall"){{
+            requirements(Category.defense, ItemStack.with(Items.scrap, 6));
+            health = 70 * wallHealthMultiplier;
+            envDisabled |= Env.scorching;
+        }};
+        refurbishedScrapWallLarge = new Wall("refubished-scrap-wall-large"){{
+            requirements(Category.defense, ItemStack.with(Items.scrap, 24));
+            health = 70 * wallHealthMultiplier * 4;
+            size = 2;
+            envDisabled |= Env.scorching;
+        }};
+        refurbishedScrapWallHuge = new Wall("refubished-scrap-wall-huge"){{
+            requirements(Category.defense, ItemStack.with(Items.scrap, 54));
+            health = 70 * wallHealthMultiplier * 9;
+            size = 3;
+            envDisabled |= Env.scorching;
+        }};
+        refurbishedScrapWallGigantic = new Wall("refubished-scrap-wall-gigantic"){{
+            requirements(Category.defense, ItemStack.with(Items.scrap, 96));
+            health = 70 * wallHealthMultiplier * 16;
+            size = 4;
+            envDisabled |= Env.scorching;
+        }};
         copperWallHuge = new Wall("copper-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.copper, 54));
             health = 80 * wallHealthMultiplier * 9;
@@ -205,6 +244,54 @@ public class SSWalls{
             size = 4;
             envDisabled |= Env.scorching;
         }};
+
+        BulletType colorFireball= new BulletType(1f, 4){
+            {
+                pierce = true;
+                collidesTiles = false;
+                collides = false;
+                drag = 0.03f;
+                hitEffect = despawnEffect = Fx.none;
+            }
+
+            @Override
+            public void init(Bullet b){
+                b.vel.setLength(0.6f + Mathf.random(2f));
+                if(!(b.data instanceof Item)) b.data(Items.coal);
+            }
+
+            @Override
+            public void draw(Bullet b){
+                Color gray = Color.orange;
+                Fill.circle(b.x, b.y, 3f * b.fout());
+                Draw.reset();
+            }
+
+            @Override
+            public void update(Bullet b){
+                if(Mathf.chance(0.04 * Time.delta)){
+                    Tile tile = world.tileWorld(b.x, b.y);
+                    if(tile != null){
+                        Fires.create(tile);
+                    }
+                }
+
+                if(Mathf.chance(0.1 * Time.delta)){
+                    Fx.fireballsmoke.at(b.x, b.y);
+                }
+            }
+        };
+
+        pyratiteWall = new BulletWall("pyratite-wall"){{
+            shard = colorFireball;
+            amount = 8;
+            inaccuracy = 24f;
+            health = 300;
+            size = 1;
+            distRand = 6.5f;
+            requirements(Category.defense, with(Items.pyratite, 6));
+        }};
+
         phaseWallHuge = new Wall("phase-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.phaseFabric, 54));
             health = 150 * wallHealthMultiplier * 9;
