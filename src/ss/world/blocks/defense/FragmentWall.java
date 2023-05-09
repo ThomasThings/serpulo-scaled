@@ -21,7 +21,11 @@ public class FragmentWall extends Wall {
         public void onDestroyed() {
             if(destroyEffect != null) destroyEffect.at(this);
             for(int i = 0; i < amount; i++){
-                shard.create(this, this.team,x + Mathf.random(-distRand, distRand), y + Mathf.random(-distRand, distRand), 360f * i / (float)amount + Mathf.random(-inaccuracy, inaccuracy), 1f + Mathf.random(-velRand, velRand), 1f);
+                shard.create(this, this.team,x + Mathf.random(-distRand, distRand),
+                y + Mathf.random(-distRand, distRand),
+                360f * i / (float)amount + Mathf.random(-inaccuracy, inaccuracy),
+                0.8f + Mathf.random(-velRand, velRand),
+                3f);
             }
             super.onDestroyed();
         }
