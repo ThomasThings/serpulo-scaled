@@ -6,17 +6,17 @@ import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.world.blocks.defense.*;
 
-public class BulletWall extends Wall {
+public class FragmentWall extends Wall {
     public BulletType shard;
     public @Nullable Effect destroyEffect;
     public int amount = 7;
     public float inaccuracy = 15f, distRand = 3f, velRand = 0.1f;
 
-    public BulletWall(String name){
+    public FragmentWall(String name){
         super(name);
     }
 
-    public class BulletWallBuild extends WallBuild {
+    public class FragmentWallBuild extends WallBuild {
         @Override
         public void onDestroyed() {
             if(destroyEffect != null) destroyEffect.at(this);

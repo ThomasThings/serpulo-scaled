@@ -16,7 +16,7 @@ import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.content.Items;
 import mindustry.world.meta.Env;
-import ss.world.blocks.defense.BulletWall;
+import ss.world.blocks.defense.FragmentWall;
 
 import static mindustry.Vars.world;
 import static mindustry.type.ItemStack.*;
@@ -282,7 +282,7 @@ public class SSWalls{
             }
         };
 
-        pyratiteWall = new BulletWall("pyratite-wall"){{
+        pyratiteWall = new FragmentWall("pyratite-wall"){{
             shard = colorFireball;
             amount = 8;
             inaccuracy = 24f;
