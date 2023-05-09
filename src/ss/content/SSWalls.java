@@ -66,6 +66,7 @@ public class SSWalls{
             size = 4;
             envDisabled |= Env.scorching;
         }};
+
         copperWallHuge = new Wall("copper-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.copper, 54));
             health = 80 * wallHealthMultiplier * 9;
@@ -78,6 +79,7 @@ public class SSWalls{
             size = 4;
             envDisabled |= Env.scorching;
         }};
+
         leadWall = new Wall("lead-wall"){{
             requirements(Category.defense, ItemStack.with(Items.lead, 5));
             health = 60 * wallHealthMultiplier;
@@ -101,6 +103,7 @@ public class SSWalls{
             size = 4;
             envDisabled |= Env.scorching;
         }};
+
         metaglassWall = new Wall("metaglass-wall"){{
             requirements(Category.defense, with(Items.metaglass, 6));
             health = 85 * wallHealthMultiplier;
@@ -128,6 +131,7 @@ public class SSWalls{
             absorbLasers = true;
             envDisabled |= Env.scorching;
         }};
+
         graphiteWall = new Wall("graphite-wall"){{
             requirements(Category.defense, with(Items.graphite, 6));
             health = 95 * wallHealthMultiplier;
@@ -159,6 +163,7 @@ public class SSWalls{
             schematicPriority = 10;
             envDisabled |= Env.scorching;
         }};
+
         titaniumWallHuge = new Wall("titanium-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.titanium, 54));
             health = 110 * wallHealthMultiplier * 9;
@@ -171,6 +176,7 @@ public class SSWalls{
             size = 4;
             envDisabled |= Env.scorching;
         }};
+
         siliconWall = new Wall("silicon-wall"){{
             requirements(Category.defense, with(Items.silicon, 6));
             health = 90 * wallHealthMultiplier;
@@ -214,6 +220,7 @@ public class SSWalls{
             lightningColor = Color.valueOf("d6edff");
             envDisabled |= Env.scorching;
         }};
+
         plastaniumWallHuge = new Wall("plastanium-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.plastanium, 45, Items.metaglass, 18));
             health = 125 * wallHealthMultiplier * 9;
@@ -232,6 +239,7 @@ public class SSWalls{
             schematicPriority = 10;
             envDisabled |= Env.scorching;
         }};
+
         thoriumWallHuge = new Wall("thorium-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.thorium, 54));
             health = 200 * wallHealthMultiplier * 9;
@@ -285,7 +293,7 @@ public class SSWalls{
         pyratiteWall = new FragmentWall("pyratite-wall"){{
             shard = colorFireball;
             amount = 8;
-            inaccuracy = 24f;
+            inaccuracy = 180f;
             health = 300;
             size = 1;
             distRand = 6.5f;
@@ -308,6 +316,7 @@ public class SSWalls{
             flashHit = true;
             envDisabled |= Env.scorching;
         }};
+
         surgeWallHuge = new Wall("surge-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.surgeAlloy, 54));
             health = 230 * wallHealthMultiplier * 9;
@@ -322,6 +331,7 @@ public class SSWalls{
             lightningChance = 0.05f;
             envDisabled |= Env.scorching;
         }};
+        
         doorHuge = new Door("door-huge"){{
             requirements(Category.defense, ItemStack.with(Items.titanium, 54, Items.silicon, 36));
             openfx = Fx.dooropen;
