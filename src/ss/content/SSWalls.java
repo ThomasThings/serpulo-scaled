@@ -331,7 +331,7 @@ public class SSWalls{
             lightningChance = 0.05f;
             envDisabled |= Env.scorching;
         }};
-        
+
         doorHuge = new Door("door-huge"){{
             requirements(Category.defense, ItemStack.with(Items.titanium, 54, Items.silicon, 36));
             openfx = Fx.dooropen;
