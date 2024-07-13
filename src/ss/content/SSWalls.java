@@ -24,12 +24,12 @@ import static mindustry.type.ItemStack.*;
 public class SSWalls{
     public static Block
 
-            refurbishedScrapWall, refurbishedScrapWallLarge, refurbishedScrapWallHuge, refurbishedScrapWallGigantic,
-            copperWallHuge, copperWallGigantic,
-            leadWall, leadWallLarge, leadWallHuge, leadWallGigantic,
-            metaglassWall, metaglassWallLarge, metaglassWallHuge, metaglassWallGigantic,
-            graphiteWall, graphiteWallLarge, graphiteWallHuge, graphiteWallGigantic,
-            titaniumWallHuge, titaniumWallGigantic,
+            refurbishedScrapWall, refurbishedScrapWallLarge, refurbishedScrapWallHuge, refurbishedScrapWallGigantic, refurbishedScrapWallColossol,
+            copperWallHuge, copperWallGigantic, copperWallColossol,
+            leadWall, leadWallLarge, leadWallHuge, leadWallGigantic, leadWallColossol,
+            metaglassWall, metaglassWallLarge, metaglassWallHuge, metaglassWallGigantic, metaglassWallColossol,
+            graphiteWall, graphiteWallLarge, graphiteWallHuge, graphiteWallGigantic, graphiteWallColossol,
+            titaniumWallHuge, titaniumWallGigantic, titaniumWallColossol,
             siliconWall, siliconWallLarge, siliconWallHuge, siliconWallGigantic,
             plastaniumWallHuge, plastaniumWallGigantic,
             thoriumWallHuge, thoriumWallGigantic,
@@ -45,25 +45,31 @@ public class SSWalls{
         int wallHealthMultiplier = 4;
         refurbishedScrapWall = new Wall("refubished-scrap-wall"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 6));
-            health = 70 * wallHealthMultiplier;
+            health = 45 * wallHealthMultiplier;
             envDisabled |= Env.scorching;
         }};
         refurbishedScrapWallLarge = new Wall("refubished-scrap-wall-large"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 24));
-            health = 70 * wallHealthMultiplier * 4;
+            health = 45 * wallHealthMultiplier * 4;
             size = 2;
             envDisabled |= Env.scorching;
         }};
         refurbishedScrapWallHuge = new Wall("refubished-scrap-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 54));
-            health = 70 * wallHealthMultiplier * 9;
+            health = 45 * wallHealthMultiplier * 9;
             size = 3;
             envDisabled |= Env.scorching;
         }};
         refurbishedScrapWallGigantic = new Wall("refubished-scrap-wall-gigantic"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 96));
-            health = 70 * wallHealthMultiplier * 16;
+            health = 45 * wallHealthMultiplier * 16;
             size = 4;
+            envDisabled |= Env.scorching;
+        }};
+        refurbishedScrapWallColossol = new Wall("refubished-scrap-wall-colossol"){{
+            requirements(Category.defense, ItemStack.with(Items.scrap, 150));
+            health = 45 * wallHealthMultiplier * 25;
+            size = 5;
             envDisabled |= Env.scorching;
         }};
 
@@ -77,6 +83,12 @@ public class SSWalls{
             requirements(Category.defense, ItemStack.with(Items.copper, 96));
             health = 80 * wallHealthMultiplier * 16;
             size = 4;
+            envDisabled |= Env.scorching;
+        }};
+        copperWallColossol = new Wall("copper-wall-colossol"){{
+            requirements(Category.defense, ItemStack.with(Items.copper, 150));
+            health = 80 * wallHealthMultiplier * 25;
+            size = 5;
             envDisabled |= Env.scorching;
         }};
 
@@ -101,6 +113,12 @@ public class SSWalls{
             requirements(Category.defense, ItemStack.with(Items.lead, 80));
             health = 60 * wallHealthMultiplier * 16;
             size = 4;
+            envDisabled |= Env.scorching;
+        }};
+        leadWallColossol = new Wall("lead-wall-colossol"){{
+            requirements(Category.defense, ItemStack.with(Items.lead, 125));
+            health = 60 * wallHealthMultiplier * 25;
+            size = 5;
             envDisabled |= Env.scorching;
         }};
 
@@ -129,6 +147,12 @@ public class SSWalls{
             health = 85 * wallHealthMultiplier * 16;
             size = 4;
             absorbLasers = true;
+            envDisabled |= Env.scorching;
+        }};
+        metaglassWallColossol = new Wall("metaglass-wall-colossol"){{
+            requirements(Category.defense, ItemStack.with(Items.scrap, 150));
+            health = 85 * wallHealthMultiplier * 25;
+            size = 5;
             envDisabled |= Env.scorching;
         }};
 
@@ -163,6 +187,12 @@ public class SSWalls{
             schematicPriority = 10;
             envDisabled |= Env.scorching;
         }};
+        graphiteWallColossol = new Wall("graphite-wall-colossol"){{
+            requirements(Category.defense, ItemStack.with(Items.graphite, 150));
+            health = 96 * wallHealthMultiplier * 25;
+            size = 5;
+            envDisabled |= Env.scorching;
+        }};
 
         titaniumWallHuge = new Wall("titanium-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.titanium, 54));
@@ -174,6 +204,12 @@ public class SSWalls{
             requirements(Category.defense, ItemStack.with(Items.titanium, 96));
             health = 110 * wallHealthMultiplier * 16;
             size = 4;
+            envDisabled |= Env.scorching;
+        }};
+        titaniumWallColossol = new Wall("titanium-wall-colossol"){{
+            requirements(Category.defense, ItemStack.with(Items.titanium, 150));
+            health = 110 * wallHealthMultiplier * 25;
+            size = 5;
             envDisabled |= Env.scorching;
         }};
 
