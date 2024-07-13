@@ -164,7 +164,8 @@ public class SSTurrets{
                 parts.add(new RegionPart("-back"){{
                     progress = PartProgress.warmup;
                     under = true;
-                    moveY = -2f;
+                    moveY = 1f;
+                    moveX = 1f;
                     moveRot = -15;
                     mirror = true;
                     moves.add(new PartMove(PartProgress.recoil, 0f, -2f, 0f));
