@@ -74,6 +74,8 @@ public class SSTurrets{
                     under = true;
                     moveY = -1.5f;
                 }});
+                parts.add(new RegionPart("-top"){{
+                }});
             }};
             recoil = 0.8f;
 
@@ -167,6 +169,8 @@ public class SSTurrets{
                     moveRot = 10;
                     mirror = true;
                     moves.add(new PartMove(PartProgress.recoil, 0f, -1f, 0f));
+                }});
+                parts.add(new RegionPart("-top"){{
                 }});
             }};
             recoil = 1;
