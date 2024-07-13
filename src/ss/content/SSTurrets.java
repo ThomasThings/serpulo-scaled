@@ -32,7 +32,7 @@ public class SSTurrets{
 
     public static void load(){
 
-        binary = new ItemTurret("dyad"){{
+        binary = new ItemTurret("binary"){{
             requirements(Category.turret, with(Items.copper, 80, Items.graphite, 40));
             ammo(
                     Items.copper,  new BasicBulletType(2.7f, 12){{
@@ -87,33 +87,33 @@ public class SSTurrets{
 
             limitRange();
         }};
-        tetra = new ItemTurret("trifecta"){{
+        tetra = new ItemTurret("tetra"){{
             requirements(Category.turret, with(Items.copper, 200, Items.graphite, 150, Items.titanium, 120));
             ammo(
                     Items.copper,  new BasicBulletType(2.7f, 25){{
-                        width = 12f;
-                        height = 16f;
+                        width = 8f;
+                        height = 12f;
                         lifetime = 80f;
                         ammoMultiplier = 2;
                     }},
                     Items.graphite, new BasicBulletType(3.7f, 35){{
-                        width = 14f;
-                        height = 20f;
+                        width = 10f;
+                        height = 16f;
                         reloadMultiplier = 0.9f;
                         ammoMultiplier = 4;
                         lifetime = 80f;
                     }},
                     Items.silicon, new BasicBulletType(3.2f, 25){{
-                        width = 12f;
-                        height = 16f;
+                        width = 8f;
+                        height = 12f;
                         homingPower = 0.1f;
                         reloadMultiplier = 1.5f;
                         ammoMultiplier = 5;
                         lifetime = 90f;
                     }},
                     Items.titanium, new BasicBulletType(3.5f, 40){{
-                        width = 14f;
-                        height = 20f;
+                        width = 10f;
+                        height = 16f;
                         reloadMultiplier = 0.9f;
                         ammoMultiplier = 4;
                         lifetime = 80f;
@@ -129,6 +129,29 @@ public class SSTurrets{
                         7, 0f, 0
                 };
             }};
+
+            recoils = 4;
+            drawer = new DrawTurret(){{
+                for(int i = 0; i < 2; i ++){
+                    int f = i;
+                    parts.add(new RegionPart("-barrel-low-" + (i == 0 ? "l" : "r")){{
+                        progress = PartProgress.recoil;
+                        recoilIndex = f;
+                        under = true;
+                        moveY = -2f;
+                    }});
+                }
+                for(int i = 2; i < 4; i ++){
+                    int f = i;
+                    parts.add(new RegionPart("-barrel-high-" + (i == 2 ? "l" : "r")){{
+                        progress = PartProgress.recoil;
+                        recoilIndex = f;
+                        under = true;
+                        moveY = -2f;
+                    }});
+                }
+            }};
+            recoil = 1;
 
             reload = 10f;
             range = 190;

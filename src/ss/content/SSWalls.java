@@ -43,30 +43,30 @@ public class SSWalls{
     public static void load(){
 
         int wallHealthMultiplier = 4;
-        refurbishedScrapWall = new Wall("refubished-scrap-wall"){{
+        refurbishedScrapWall = new Wall("refurbished-scrap-wall"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 6));
             health = 45 * wallHealthMultiplier;
             envDisabled |= Env.scorching;
         }};
-        refurbishedScrapWallLarge = new Wall("refubished-scrap-wall-large"){{
+        refurbishedScrapWallLarge = new Wall("refurbished-scrap-wall-large"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 24));
             health = 45 * wallHealthMultiplier * 4;
             size = 2;
             envDisabled |= Env.scorching;
         }};
-        refurbishedScrapWallHuge = new Wall("refubished-scrap-wall-huge"){{
+        refurbishedScrapWallHuge = new Wall("refurbished-scrap-wall-huge"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 54));
             health = 45 * wallHealthMultiplier * 9;
             size = 3;
             envDisabled |= Env.scorching;
         }};
-        refurbishedScrapWallGigantic = new Wall("refubished-scrap-wall-gigantic"){{
+        refurbishedScrapWallGigantic = new Wall("refurbished-scrap-wall-gigantic"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 96));
             health = 45 * wallHealthMultiplier * 16;
             size = 4;
             envDisabled |= Env.scorching;
         }};
-        refurbishedScrapWallColossol = new Wall("refubished-scrap-wall-colossol"){{
+        refurbishedScrapWallColossol = new Wall("refurbished-scrap-wall-colossol"){{
             requirements(Category.defense, ItemStack.with(Items.scrap, 150));
             health = 45 * wallHealthMultiplier * 25;
             size = 5;
