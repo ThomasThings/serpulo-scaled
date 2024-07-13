@@ -140,7 +140,6 @@ public class SSTurrets{
                         recoilIndex = f;
                         under = true;
                         moveY = -2f;
-                        mirror = true;
                     }});
                 }
                 for(int i = 0; i < 2; i ++){
@@ -150,7 +149,6 @@ public class SSTurrets{
                         recoilIndex = f;
                         under = true;
                         moveY = -2f;
-                        mirror = true;
                     }});
                 }
             }};
