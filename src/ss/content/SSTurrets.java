@@ -163,12 +163,11 @@ public class SSTurrets{
                 }});
                 parts.add(new RegionPart("-back"){{
                     progress = PartProgress.warmup;
-                    recoilIndex = 3;
                     under = true;
-                    moveY = -1f;
-                    moveRot = 10;
+                    moveY = -2f;
+                    moveRot = -15;
                     mirror = true;
-                    moves.add(new PartMove(PartProgress.recoil, 0f, -1f, 0f));
+                    moves.add(new PartMove(PartProgress.recoil, 0f, -2f, 0f));
                 }});
                 parts.add(new RegionPart("-top"){{
                 }});
