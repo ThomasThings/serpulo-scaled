@@ -161,7 +161,7 @@ public class SSTurrets{
                     under = true;
                     moveY = -2f;
                 }});
-                parts.add(new RegionPart("-barrel-low-r"){{
+                parts.add(new RegionPart("-back"){{
                     progress = PartProgress.warmup;
                     recoilIndex = 3;
                     under = true;
