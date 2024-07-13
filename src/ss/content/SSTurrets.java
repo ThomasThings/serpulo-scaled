@@ -62,16 +62,18 @@ public class SSTurrets{
 
             recoils = 2;
             drawer = new DrawTurret(){{
-                for(int i = 0; i < 2; i ++){
-                    int f = i;
-                    parts.add(new RegionPart("-barrel-" + (i == 0 ? "l" : "r")){{
-                        progress = PartProgress.recoil;
-                        recoilIndex = f;
-                        under = true;
-                        moveY = -1.5f;
-                        mirror = true;
-                    }});
-                }
+                parts.add(new RegionPart("-barrel-l"){{
+                    progress = PartProgress.recoil;
+                    recoilIndex = 1;
+                    under = true;
+                    moveY = -1.5f;
+                }});
+                parts.add(new RegionPart("-barrel-r"){{
+                    progress = PartProgress.recoil;
+                    recoilIndex = 2;
+                    under = true;
+                    moveY = -1.5f;
+                }});
             }};
             recoil = 0.8f;
 
@@ -133,24 +135,30 @@ public class SSTurrets{
 
             recoils = 4;
             drawer = new DrawTurret(){{
-                for(int i = 0; i < 2; i ++){
-                    int f = i;
-                    parts.add(new RegionPart("-barrel-low-" + (i == 0 ? "l" : "r")){{
-                        progress = PartProgress.recoil;
-                        recoilIndex = f;
-                        under = true;
-                        moveY = -2f;
-                    }});
-                }
-                for(int i = 0; i < 2; i ++){
-                    int f = i;
-                    parts.add(new RegionPart("-barrel-high-" + (i == 0 ? "l" : "r")){{
-                        progress = PartProgress.recoil;
-                        recoilIndex = f;
-                        under = true;
-                        moveY = -2f;
-                    }});
-                }
+                parts.add(new RegionPart("-barrel-low-l"){{
+                    progress = PartProgress.recoil;
+                    recoilIndex = 1;
+                    under = true;
+                    moveY = -2f;
+                }});
+                parts.add(new RegionPart("-barrel-low-r"){{
+                    progress = PartProgress.recoil;
+                    recoilIndex = 2;
+                    under = true;
+                    moveY = -2f;
+                }});
+                parts.add(new RegionPart("-barrel-high-l"){{
+                    progress = PartProgress.recoil;
+                    recoilIndex = 3;
+                    under = true;
+                    moveY = -2f;
+                }});
+                parts.add(new RegionPart("-barrel-high-r"){{
+                    progress = PartProgress.recoil;
+                    recoilIndex = 4;
+                    under = true;
+                    moveY = -2f;
+                }});
             }};
             recoil = 1;
 
