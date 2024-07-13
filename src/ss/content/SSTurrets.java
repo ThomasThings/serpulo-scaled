@@ -143,9 +143,9 @@ public class SSTurrets{
                         mirror = true;
                     }});
                 }
-                for(int i = 2; i < 4; i ++){
+                for(int i = 0; i < 2; i ++){
                     int f = i;
-                    parts.add(new RegionPart("-barrel-high-" + (i == 2 ? "l" : "r")){{
+                    parts.add(new RegionPart("-barrel-high-" + (i == 0 ? "l" : "r")){{
                         progress = PartProgress.recoil;
                         recoilIndex = f;
                         under = true;
