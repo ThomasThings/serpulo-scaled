@@ -7,6 +7,7 @@ import mindustry.entities.bullet.ArtilleryBulletType;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.LightningBulletType;
+import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootAlternate;
 import mindustry.entities.pattern.ShootBarrel;
 import mindustry.gen.Sounds;
@@ -17,20 +18,21 @@ import mindustry.world.blocks.defense.*;
 import mindustry.content.Items;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
+import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.Env;
 
 import static mindustry.type.ItemStack.*;
 
 public class SSTurrets{
     public static Block
-            dyad, trifecta,
-            inferno, hellfire,
-            sleet, meteor,
-            discharge, cumulos;
+            /*duo*/ binary, tetra,
+            /*duo*/ inferno, hellfire,
+            /*duo*/ sleet, meteor,
+            /*duo*/ discharge, cumulos;
 
     public static void load(){
 
-        dyad = new ItemTurret("dyad"){{
+        binary = new ItemTurret("dyad"){{
             requirements(Category.turret, with(Items.copper, 80, Items.graphite, 40));
             ammo(
                     Items.copper,  new BasicBulletType(2.7f, 12){{
@@ -56,7 +58,21 @@ public class SSTurrets{
                     }}
             );
 
-            shoot = new ShootAlternate(6.5f);
+            shoot = new ShootAlternate(4f);
+
+            recoils = 2;
+            drawer = new DrawTurret(){{
+                for(int i = 0; i < 2; i ++){
+                    int f = i;
+                    parts.add(new RegionPart("-barrel-" + (i == 0 ? "l" : "r")){{
+                        progress = PartProgress.recoil;
+                        recoilIndex = f;
+                        under = true;
+                        moveY = -1.5f;
+                    }});
+                }
+            }};
+            recoil = 0.8f;
 
             shootY = 7f;
             reload = 20f;
@@ -71,7 +87,7 @@ public class SSTurrets{
 
             limitRange();
         }};
-        trifecta = new ItemTurret("trifecta"){{
+        tetra = new ItemTurret("trifecta"){{
             requirements(Category.turret, with(Items.copper, 200, Items.graphite, 150, Items.titanium, 120));
             ammo(
                     Items.copper,  new BasicBulletType(2.7f, 25){{
@@ -104,12 +120,13 @@ public class SSTurrets{
                     }}
             );
 
-            shootY = 10;
+            shootY = 5.75f;
             shoot = new ShootBarrel(){{
                 barrels = new float[]{
-                        0f, 3f, 0f,
-                        7f, 0f, 0f,
-                        -7f, 0f, 0f,
+                        -7, 0f, 0,
+                        -3, 5.25f, 0,
+                        3, 5.25f, 0,
+                        7, 0f, 0
                 };
             }};
 
