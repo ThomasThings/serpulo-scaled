@@ -141,7 +141,7 @@ public class SSTurrets{
                     under = true;
                     moveY = -2f;
                 }});
-                parts.add(new RegionPart("-barrel-low-r"){{
+                parts.add(new RegionPart("-barrel-high-r"){{
                     progress = PartProgress.recoil;
                     recoilIndex = 1;
                     under = true;
@@ -153,11 +153,20 @@ public class SSTurrets{
                     under = true;
                     moveY = -2f;
                 }});
-                parts.add(new RegionPart("-barrel-high-r"){{
+                parts.add(new RegionPart("-barrel-low-r"){{
                     progress = PartProgress.recoil;
                     recoilIndex = 3;
                     under = true;
                     moveY = -2f;
+                }});
+                parts.add(new RegionPart("-barrel-low-r"){{
+                    progress = PartProgress.warmup;
+                    recoilIndex = 3;
+                    under = true;
+                    moveY = -1f;
+                    moveRot = 10;
+                    mirror = true;
+                    moves.add(new PartMove(PartProgress.recoil, 0f, -1f, 0f));
                 }});
             }};
             recoil = 1;
