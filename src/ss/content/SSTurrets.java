@@ -143,13 +143,13 @@ public class SSTurrets{
                     under = true;
                     moveY = -2f;
                 }});
-                parts.add(new RegionPart("-barrel-high-r"){{
+                parts.add(new RegionPart("-barrel-high-l"){{
                     progress = PartProgress.recoil;
                     recoilIndex = 1;
                     under = true;
                     moveY = -2f;
                 }});
-                parts.add(new RegionPart("-barrel-high-l"){{
+                parts.add(new RegionPart("-barrel-high-r"){{
                     progress = PartProgress.recoil;
                     recoilIndex = 2;
                     under = true;
