@@ -165,10 +165,10 @@ public class SSTurrets{
                     progress = PartProgress.warmup;
                     under = true;
                     moveY = 1f;
-                    moveX = 1f;
+                    moveX = 2f;
                     moveRot = -15;
                     mirror = true;
-                    moves.add(new PartMove(PartProgress.recoil, 0f, -2f, 0f));
+                    moves.add(new PartMove(PartProgress.recoil, 0f, -0.5f, 0f));
                 }});
                 parts.add(new RegionPart("-top"){{
                 }});
