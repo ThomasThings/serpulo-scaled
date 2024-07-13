@@ -64,13 +64,13 @@ public class SSTurrets{
             drawer = new DrawTurret(){{
                 parts.add(new RegionPart("-barrel-l"){{
                     progress = PartProgress.recoil;
-                    recoilIndex = 1;
+                    recoilIndex = 0;
                     under = true;
                     moveY = -1.5f;
                 }});
                 parts.add(new RegionPart("-barrel-r"){{
                     progress = PartProgress.recoil;
-                    recoilIndex = 2;
+                    recoilIndex = 1;
                     under = true;
                     moveY = -1.5f;
                 }});
