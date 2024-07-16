@@ -44,7 +44,7 @@ public class SSTurrets{
                     Items.graphite, new BasicBulletType(3.7f, 25){{
                         width = 9f;
                         height = 12f;
-                        reloadMultiplier = 0.8f;
+                        reloadMultiplier = 0.65f;
                         ammoMultiplier = 4;
                         lifetime = 60f;
                     }},
@@ -104,8 +104,8 @@ public class SSTurrets{
                     Items.graphite, new BasicBulletType(3.7f, 35){{
                         width = 10f;
                         height = 16f;
-                        reloadMultiplier = 0.9f;
-                        ammoMultiplier = 3;
+                        reloadMultiplier = 0.75f;
+                        ammoMultiplier = 2;
                         lifetime = 80f;
                     }},
                     Items.silicon, new BasicBulletType(3.2f, 25){{
@@ -113,14 +113,14 @@ public class SSTurrets{
                         height = 12f;
                         homingPower = 0.1f;
                         reloadMultiplier = 1.5f;
-                        ammoMultiplier = 4;
+                        ammoMultiplier = 3;
                         lifetime = 90f;
                     }},
-                    Items.titanium, new BasicBulletType(3.5f, 40){{
+                    Items.titanium, new BasicBulletType(3.5f, 45){{
                         width = 10f;
                         height = 16f;
-                        reloadMultiplier = 0.9f;
-                        ammoMultiplier = 3;
+                        reloadMultiplier = 0.7f;
+                        ammoMultiplier = 2;
                         lifetime = 80f;
                     }}
             );
