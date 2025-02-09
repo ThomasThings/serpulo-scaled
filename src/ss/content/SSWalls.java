@@ -32,7 +32,8 @@ public class SSWalls{
             titaniumWallHuge, titaniumWallGigantic, titaniumWallColossol,
             siliconWall, siliconWallLarge, siliconWallHuge, siliconWallGigantic,
             plastaniumWallHuge, plastaniumWallGigantic,
-            thoriumWallHuge, thoriumWallGigantic,
+            thoriumWallHuge, thoriumWallGigantic, thoriumWallColossol,
+            scrapWallColossol,
             pyratiteWall, pyratiteWallLarge, pyratiteWallHuge, pyratiteWallGigantic,
             sporePodWall, sporePodWallLarge, sporePodWallHuge, sporePodWallGigantic,
             blastCompoundWall, blastCompoundWallLarge, blastCompoundWallHuge, blastCompoundWallGigantic,
@@ -286,6 +287,19 @@ public class SSWalls{
             requirements(Category.defense, ItemStack.with(Items.thorium, 96));
             health = 200 * wallHealthMultiplier * 16;
             size = 4;
+            envDisabled |= Env.scorching;
+        }};
+        thoriumWallColossol = new Wall("thorium-wall-colossol"){{
+            requirements(Category.defense, ItemStack.with(Items.thorium, 150));
+            health = 200 * wallHealthMultiplier * 25;
+            size = 5;
+            envDisabled |= Env.scorching;
+        }};
+
+        scrapWallColossol = new Wall("scrap-wall-colossol"){{
+            requirements(Category.defense, ItemStack.with(Items.graphite, 150));
+            health = 60 * wallHealthMultiplier * 25;
+            size = 5;
             envDisabled |= Env.scorching;
         }};
 
